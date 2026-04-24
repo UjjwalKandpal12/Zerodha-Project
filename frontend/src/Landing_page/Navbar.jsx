@@ -82,7 +82,7 @@ function Navbar() {
 
               <li class="nav-item">
                 {user !== null ? (
-                  <Link class="nav-link active" to="http://localhost:3000">
+                  <Link class="nav-link active" to="https://zerodha-project-dashboard-rlde.onrender.com">
                     Dashboard
                   </Link>
                 ) : null}
