@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 
 const API = axios.create({
-  baseURL: "https://zerodha-project-backend1.onrender.com",
+  baseURL: "https://zerodha-project-backend1.onrender.com/api",
 
   withCredentials: true, // IMPORTANT for cookies
 });
