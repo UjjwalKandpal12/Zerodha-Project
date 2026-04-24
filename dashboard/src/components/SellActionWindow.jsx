@@ -16,7 +16,7 @@ const SellActionWindow = ({ uid }) => {
       return;
     }
     axios
-      .get(`http://localhost:5000/holdings/${uid}`)
+      .get(`https://zerodha-project-backend1.onrender.com/holdings/${uid}`)
       .then((res) => {
         const holding = res.data;
 
@@ -33,14 +33,14 @@ const SellActionWindow = ({ uid }) => {
           return;
         }
 
-        axios.post("http://localhost:5000/newOrder", {
+        axios.post("https://zerodha-project-backend1.onrender.com/newOrder", {
           name: uid,
           qty: stockQuantity,
           price: stockPrice,
           mode: "SELL",
         });
 
-        axios.post("http://localhost:5000/sellHoldings", {
+        axios.post("https://zerodha-project-backend1.onrender.com/sellHoldings", {
           name: uid,
           qty: stockQuantity,
           price: stockPrice,

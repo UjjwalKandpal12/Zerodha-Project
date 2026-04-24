@@ -15,14 +15,14 @@ const BuyActionWindow = ({ uid }) => {
 
   const 
   handleBuyClick = () => {
-    axios.post("http://localhost:5000/newOrder", {
+    axios.post("https://zerodha-project-backend1.onrender.com/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
       mode: "BUY",
     });
 
-    axios.post("http://localhost:5000/updateHoldings", {
+    axios.post("https://zerodha-project-backend1.onrender.com/updateHoldings", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

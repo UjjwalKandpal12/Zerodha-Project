@@ -5,7 +5,7 @@ const Orders = () => {
   let [allOrders, setAllOrders] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://zerodha-project-backend1.onrender.com/allOrders")
       .then((response) => response.json())
       .then((data) => {
         setAllOrders(data);

@@ -7,7 +7,7 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:5000/allHoldings").then((res) => {
+    axios.get("https://zerodha-project-backend1.onrender.com/allHoldings").then((res) => {
       setAllHoldings(res.data);
       console.log(res.data);
     });
