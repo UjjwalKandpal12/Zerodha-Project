@@ -12,7 +12,7 @@ function Signup() {
   const handleSignupForm = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/auth/register", {
+      .post("https://zerodha-project-backend1.onrender.com/api/auth/register", {
         username,
         email,
         password,

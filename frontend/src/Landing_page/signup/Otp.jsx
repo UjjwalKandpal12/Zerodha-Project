@@ -14,7 +14,7 @@ function Otp() {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5000/api/auth/verify-email", {
+        .post("https://zerodha-project-backend1.onrender.com/api/auth/verify-email", {
           otp,
           email: state.email,
         })
