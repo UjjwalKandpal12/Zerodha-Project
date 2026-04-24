@@ -10,7 +10,7 @@ const authRouter = require("./routes/auth.routes");
 const app = express();
 const PORT = config.PORT || 5000;
 
-const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
+const allowedOrigins = ["http://localhost:3000", "http://localhost:3001", "https://zerodha-project-frontend2.onrender.com","https://zerodha-project-dashboard-rlde.onrender.com"];
 app.use(
   cors({
     origin: function (origin, callback) {
