@@ -10,7 +10,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 
 oAuth2Client.setCredentials({
-  refresh_token: config.GOOGle_REFRESH_TOKEN,
+  refresh_token: config.GOOGlE_REFRESH_TOKEN,
 });
 
 const transporter = nodemailer.createTransport({
