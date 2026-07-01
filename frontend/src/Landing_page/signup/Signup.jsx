@@ -1,14 +1,17 @@
-import React, { useState,useContext  } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { AuthContext } from "../GeneralAuth";
+import { AuthContext } from "../GeneralAuth"; 
+
 function Signup() {
   const navigate = useNavigate();
-  const { setUser } = useContext(AuthContext);
+
+  const { setUser } = useContext(AuthContext); 
+  
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [navigateToOtp, setNavigateToOtp] = useState(false);
+
   const handleSignupForm = (e) => {
     e.preventDefault();
     axios
@@ -18,15 +21,19 @@ function Signup() {
         password,
       })
       .then((response) => {
-        // Handle successful signup
         console.log(response.data);
-        setNavigateToOtp(true);
-        setUser(response.data.user); // Set the user in context
+        
+        if (response.data && response.data.user) {
+          setUser(response.data.user);
+        }
+
+        navigate("/otp", { state: { email: email, password: password } });
+      })
       .catch((error) => {
-        // Handle signup error
         console.error("Error occurred while signing up:", error);
       });
   };
+
   return (
     <div
       className="container"
@@ -53,37 +60,37 @@ function Signup() {
           }}
         >
           <form className="needs-validation" onSubmit={handleSignupForm}>
-            <div class="mb-3 mt-4 px-4 fs-5">
-              <label for="Username" class="">
+            <div className="mb-3 mt-4 px-4 fs-5">
+              <label htmlFor="Username" className="">
                 Username
               </label>
               <input
                 type="text"
-                class="form-control input"
+                className="form-control input"
                 id="Username"
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
-            <div class="mb-3 mt-4 px-4 fs-5">
-              <label for="email" class="form-label">
+            <div className="mb-3 mt-4 px-4 fs-5">
+              <label htmlFor="email" className="form-label">
                 Email address
               </label>
               <input
                 type="email"
-                class="form-control input"
+                className="form-control input"
                 id="email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
-            <div class="mb-3 mt-4 px-4 fs-5">
-              <label for="password" class="form-label">
+            <div className="mb-3 mt-4 px-4 fs-5">
+              <label htmlFor="password" className="form-label">
                 Password
               </label>
               <input
                 type="password"
-                class="form-control input"
+                className="form-control input"
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -92,16 +99,13 @@ function Signup() {
             <div className="mt-4 px-4">
               <button
                 type="submit"
-                class="btn btn-primary border"
+                className="btn btn-primary border"
                 style={{ width: "25%", height: "3rem" }}
               >
                 Submit
               </button>
             </div>
           </form>
-           {navigateToOtp &&
-            navigate("/otp", { state: { email: email, password: password } })}
-            })
         </div>
       </div>
       <div className="row-3"></div>
