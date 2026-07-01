@@ -22,6 +22,8 @@ function Signup() {
         console.log(response.data);
         setNavigateToOtp(true);
         setUser(response.data.user); // Set the user in context
+        {navigateToOtp &&
+            navigate("/otp", { state: { email: email, password: password } })}
       })
       .catch((error) => {
         // Handle signup error
@@ -101,8 +103,6 @@ function Signup() {
               </button>
             </div>
           </form>
-          {navigateToOtp &&
-            navigate("/otp", { state: { email: email, password: password } })}
         </div>
       </div>
       <div className="row-3"></div>
