@@ -55,7 +55,7 @@ function Signup() {
             marginBottom: "4rem",
           }}
         >
-          <form className="needs-validation">
+          <form className="needs-validation" onSubmit={handleSignupForm}>
             <div class="mb-3 mt-4 px-4 fs-5">
               <label for="Username" class="">
                 Username
@@ -96,7 +96,6 @@ function Signup() {
               <button
                 type="submit"
                 class="btn btn-primary border"
-                onClick={handleSignupForm}
                 style={{ width: "25%", height: "3rem" }}
               >
                 Submit
